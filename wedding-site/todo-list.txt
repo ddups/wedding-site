@@ -1,0 +1,22 @@
+Wedding Site ToDo List
+- Add Stories for both me and Emma
+    - get story writeup from Emma
+    - write my story
+- Implement photo gallery
+    - go through my photos
+    - get photos from Emma
+- Add photos of venue
+    - get photos of cabin interiors
+- Add writeup for accommodations
+    - determine final details of pricing, what to bring, etc.
+    - research nearby hotels
+- Implement input form for cabin lodging
+- Add writeups for MCs, Bridesmaids, and Groomsmen
+    - get pictures for all of them
+- Add links to both registries
+- Implement form for donations
+- Add contact info
+- Implement input form for RSVP
+    - includes payment
+- Implement guestbook
+    - research possible solutions

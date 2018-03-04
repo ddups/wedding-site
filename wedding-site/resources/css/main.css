@@ -10,7 +10,7 @@
 }
 
 html {
-  padding: 30px 10px;
+/*   padding: 30px 10px;*/
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
@@ -21,14 +21,21 @@ html {
 }
 
 body {
-  max-width: 1200px;
+/*   max-width: 1200px;
   padding: 30px 20px 50px;
   border: 1px solid #b3b3b3;
   border-radius: 4px;
-  margin: 0 auto;
   box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+ */
+  padding: 0 0 50px;
+  margin: 0 auto;
   background: #fcfcfc;
   background-image: url('../img/pattern.png');
+  overflow-x: hidden;
+}
+
+section {
+  padding: 0 250px;
 }
 
 h1 {
@@ -63,16 +70,31 @@ p {
   margin: 1em 0;
 }
 
-img {
+iframe {
+  border: none;
+}
+
+/*TODO remove this eventually*/
+.home-image {
   display: flex;
   margin: 120px auto;
 }
 
 .photo-gallery>img {
+  display: flex;
   margin: 0 auto;
 }
 
 /*****************************************/
+.nav-border-top {
+  position: relative;
+  display: block;
+}
+
+.nav-border-bottom {
+  position: relative;
+}
+
 .menu-bar {
   list-style-type: none;
   width: 75%;

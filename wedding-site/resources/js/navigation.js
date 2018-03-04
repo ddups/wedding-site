@@ -1,6 +1,11 @@
 $(document).ready(function(){
     $("#nav-placeholder")
         .append(
+            $('<img/>')
+                .attr('src', 'resources/img/divider_1.png')
+                .addClass('nav-border-top')
+        )
+        .append(
             $('<ul/>')
                 .attr('id', 'main-menu')
                 .addClass('menu-bar')
@@ -194,5 +199,11 @@ $(document).ready(function(){
                         )
                 )
         )
+        .append(
+            $('<img/>')
+                .attr('src', 'resources/img/divider_5.png')
+                .addClass('nav-border-bottom')
+        )
+
         
 });
