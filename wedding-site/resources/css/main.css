@@ -1,0 +1,178 @@
+/* CSS borrowed from the error page included in HTML5 Boilerplate. */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+html {
+  padding: 30px 10px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #737373;
+  background: #f0f0f0;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  max-width: 1200px;
+  padding: 30px 20px 50px;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+  margin: 0 auto;
+  box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+  background: #fcfcfc;
+  background-image: url('../img/pattern.png');
+}
+
+h1 {
+  margin: 0 10px;
+  font-size: 50px;
+  text-align: center;
+  color: color:#1a4b77;
+  font-weight: 500;
+}
+
+h1 span {
+  color: #bbb;
+}
+
+h1>a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h2 {
+  text-align: center;
+  color: #2e75b5;
+  font-weight: 500;
+  color: #2e75b5;
+}
+
+h3 {
+  margin: 1.5em 0 0.5em;
+}
+
+p {
+  margin: 1em 0;
+}
+
+img {
+  display: flex;
+  margin: 120px auto;
+}
+
+.photo-gallery>img {
+  margin: 0 auto;
+}
+
+/*****************************************/
+.menu-bar {
+  list-style-type: none;
+  width: 75%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.menu-bar>li {
+  float: left;
+  cursor: pointer;
+  width: 180px;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu-bar>li:hover {
+  background-color: #111;
+}
+
+li.sub-menu-button {
+  display: inline-block;
+}
+
+.sub-menu {
+  display: none;
+  background-color: #333;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.sub-menu>ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333;
+  width: 180px;
+  padding-left: 0;
+}
+
+li>a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sub-menu>ul>li:hover {
+  background-color: #111;
+}
+
+.our-story-menu-button:hover .our-story-menu {
+  display: block;
+}
+
+.info-menu-button:hover .info-menu {
+  display: block;
+}
+
+.gifts-menu-button:hover .gifts-menu {
+  display: block;
+}
+
+.contact-menu-button:hover .contact-menu {
+  display: block;
+}
+
+.wdg-prty-menu-button:hover .wdg-prty-menu {
+  display: block;
+}
+
+.map {
+  border: 0;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.paypal-btn {
+  background: #C1CAE7 url('../img/paypal-btn.png') right top no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  width: 170px;
+  border: 2px solid #778aca;
+  border-radius: 4px;
+  display: block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: #103D8C;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.paypal-btn:hover {
+  box-shadow: 0px 2px 5px grey;
+}
