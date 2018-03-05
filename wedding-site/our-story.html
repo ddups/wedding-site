@@ -8,108 +8,86 @@
 <meta name="description" content="Emma and Derek's Wedding Site">
 <meta name="author" content="Derek Dupuis">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/warped.css">
 <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Crafty+Girls:regular:latin'>
 
-<!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-<!-- <script src="resources/js/jquery-3.3.1.min.js"></script> -->
-<script src="resources/js/jquery-3.3.1.js"></script>
-<script src="resources/js/navigation.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="resources/js/header.js"></script>
+<script src="resources/js/scripts.js"></script>
+<script src="resources/js/bootstrap-nav.js"></script>
 </head>
 
-<body>
-    <header>
-        <div id='warped'>
-            <a href="index.html">
-                <span class='w0'>E</span>
-                <span class='w1'>m</span>
-                <span class='w2'>m</span>
-                <span class='w3'>a</span>
-                <span class='w4'> </span>
-                <span class='w5'>a</span>
-                <span class='w6'>n</span>
-                <span class='w7'>d</span>
-                <span class='w8'> </span>
-                <span class='w9'>D</span>
-                <span class='w10'>e</span>
-                <span class='w11'>r</span>
-                <span class='w12'>e</span>
-                <span class='w13'>k</span>
-            </a>
-        </div>
-        <!-- <h1>
-            <a href="index.html">Emma and Derek!</a>
-        </h1> -->
-        <h2>15 September 2018</h2>
-    </header>
+<body id="body">
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top"></nav>
+    <header id="header"></header>
 
-    <nav id="nav-placeholder">
-    </nav>
+    <div class="container-fluid main-content">
+        <h1>This is our story &lt;3</h1>
+        <section id="his-version" class="section-header">
+            <h2>His Version</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non porttitor
+                magna, id ultricies dolor. Donec sodales lorem non enim pretium laoreet et non enim.
+                Nam volutpat vehicula rutrum. Duis risus purus, aliquam id lorem sodales, porttitor
+                porttitor neque. Donec condimentum tortor ac elit scelerisque, quis tristique orci
+                faucibus. Proin ac suscipit magna, eu faucibus eros. Donec tincidunt, nunc vel
+                fringilla fringilla, massa magna egestas nisl, sed efficitur odio metus a tortor.
+                Proin diam tortor, finibus eu orci quis, porta dignissim eros. Curabitur vel blandit
+                nisl, nec condimentum arcu.</p>
+            <p>Pellentesque aliquet dolor nunc, at congue neque lacinia a. Pellentesque commodo
+                finibus ipsum, vel laoreet leo dictum sodales. Vestibulum lobortis diam risus, non
+                fringilla nisl ultrices vel. Suspendisse potenti. Donec commodo massa non suscipit
+                viverra. Sed suscipit mauris est, ut rhoncus nisl tempor sed. Nam neque felis,
+                congue vestibulum interdum tristique, finibus quis turpis. Morbi suscipit urna dui,
+                ut efficitur odio sollicitudin pulvinar. Proin quis elementum ex. In nec ullamcorper
+                metus. Morbi ac tincidunt nisi. Ut sit amet maximus erat. Interdum et malesuada
+                fames ac ante ipsum primis in faucibus. Nulla diam arcu, tincidunt non nisl sit
+                amet, finibus scelerisque lorem. Duis imperdiet rutrum massa sed convallis. Sed
+                accumsan libero sem, et mattis felis rhoncus eu. Curabitur pharetra, libero a
+                pretium semper, purus turpis suscipit risus, et sodales augue elit et tortor. Etiam
+                auctor orci vel tortor accumsan, nec vestibulum ante elementum. Nulla nec magna
+                felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis urna at
+                fringilla semper. Praesent gravida malesuada luctus. Morbi maximus ullamcorper
+                turpis a eleifend. Proin dapibus ornare tellus eu volutpat. Quisque faucibus ex
+                justo. Pellentesque elementum diam nec est molestie, ut semper nisl malesuada.
+                Curabitur odio ligula, cursus et arcu eget, dictum dictum lacus.</p>
+        </section>
 
-    <h1>This is our story &lt;3</h1>
-    <section id="his-version">
-        <h2>His Version</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non porttitor magna, id
-            ultricies dolor. Donec sodales lorem non enim pretium laoreet et non enim. Nam volutpat
-            vehicula rutrum. Duis risus purus, aliquam id lorem sodales, porttitor porttitor neque.
-            Donec condimentum tortor ac elit scelerisque, quis tristique orci faucibus. Proin ac
-            suscipit magna, eu faucibus eros. Donec tincidunt, nunc vel fringilla fringilla, massa
-            magna egestas nisl, sed efficitur odio metus a tortor. Proin diam tortor, finibus eu
-            orci quis, porta dignissim eros. Curabitur vel blandit nisl, nec condimentum arcu.</p>
-        <p>Pellentesque aliquet dolor nunc, at congue neque lacinia a. Pellentesque commodo
-            finibus ipsum, vel laoreet leo dictum sodales. Vestibulum lobortis diam risus, non
-            fringilla nisl ultrices vel. Suspendisse potenti. Donec commodo massa non suscipit
-            viverra. Sed suscipit mauris est, ut rhoncus nisl tempor sed. Nam neque felis, congue
-            vestibulum interdum tristique, finibus quis turpis. Morbi suscipit urna dui, ut
-            efficitur odio sollicitudin pulvinar. Proin quis elementum ex. In nec ullamcorper metus.
-            Morbi ac tincidunt nisi. Ut sit amet maximus erat. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Nulla diam arcu, tincidunt non nisl sit amet, finibus
-            scelerisque lorem. Duis imperdiet rutrum massa sed convallis. Sed accumsan libero sem,
-            et mattis felis rhoncus eu. Curabitur pharetra, libero a pretium semper, purus turpis
-            suscipit risus, et sodales augue elit et tortor. Etiam auctor orci vel tortor accumsan,
-            nec vestibulum ante elementum. Nulla nec magna felis. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Fusce mattis urna at fringilla semper. Praesent gravida
-            malesuada luctus. Morbi maximus ullamcorper turpis a eleifend. Proin dapibus ornare
-            tellus eu volutpat. Quisque faucibus ex justo. Pellentesque elementum diam nec est
-            molestie, ut semper nisl malesuada. Curabitur odio ligula, cursus et arcu eget, dictum
-            dictum lacus.</p>
-    </section>
+        <section id="her-version" class="section-header">
+            <h2>Her Version</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non porttitor
+                magna, id ultricies dolor. Donec sodales lorem non enim pretium laoreet et non enim.
+                Nam volutpat vehicula rutrum. Duis risus purus, aliquam id lorem sodales, porttitor
+                porttitor neque. Donec condimentum tortor ac elit scelerisque, quis tristique orci
+                faucibus. Proin ac suscipit magna, eu faucibus eros. Donec tincidunt, nunc vel
+                fringilla fringilla, massa magna egestas nisl, sed efficitur odio metus a tortor.
+                Proin diam tortor, finibus eu orci quis, porta dignissim eros. Curabitur vel blandit
+                nisl, nec condimentum arcu.</p>
+            <p>Pellentesque aliquet dolor nunc, at congue neque lacinia a. Pellentesque commodo
+                finibus ipsum, vel laoreet leo dictum sodales. Vestibulum lobortis diam risus, non
+                fringilla nisl ultrices vel. Suspendisse potenti. Donec commodo massa non suscipit
+                viverra. Sed suscipit mauris est, ut rhoncus nisl tempor sed. Nam neque felis,
+                congue vestibulum interdum tristique, finibus quis turpis. Morbi suscipit urna dui,
+                ut efficitur odio sollicitudin pulvinar. Proin quis elementum ex. In nec ullamcorper
+                metus. Morbi ac tincidunt nisi. Ut sit amet maximus erat. Interdum et malesuada
+                fames ac ante ipsum primis in faucibus. Nulla diam arcu, tincidunt non nisl sit
+                amet, finibus scelerisque lorem. Duis imperdiet rutrum massa sed convallis. Sed
+                accumsan libero sem, et mattis felis rhoncus eu. Curabitur pharetra, libero a
+                pretium semper, purus turpis suscipit risus, et sodales augue elit et tortor. Etiam
+                auctor orci vel tortor accumsan, nec vestibulum ante elementum. Nulla nec magna
+                felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis urna at
+                fringilla semper. Praesent gravida malesuada luctus. Morbi maximus ullamcorper
+                turpis a eleifend. Proin dapibus ornare tellus eu volutpat. Quisque faucibus ex
+                justo. Pellentesque elementum diam nec est molestie, ut semper nisl malesuada.
+                Curabitur odio ligula, cursus et arcu eget, dictum dictum lacus.</p>
+        </section>
 
-    <section id="her-version">
-        <h2>Her Version</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non porttitor magna, id
-            ultricies dolor. Donec sodales lorem non enim pretium laoreet et non enim. Nam volutpat
-            vehicula rutrum. Duis risus purus, aliquam id lorem sodales, porttitor porttitor neque.
-            Donec condimentum tortor ac elit scelerisque, quis tristique orci faucibus. Proin ac
-            suscipit magna, eu faucibus eros. Donec tincidunt, nunc vel fringilla fringilla, massa
-            magna egestas nisl, sed efficitur odio metus a tortor. Proin diam tortor, finibus eu
-            orci quis, porta dignissim eros. Curabitur vel blandit nisl, nec condimentum arcu.</p>
-        <p>Pellentesque aliquet dolor nunc, at congue neque lacinia a. Pellentesque commodo
-            finibus ipsum, vel laoreet leo dictum sodales. Vestibulum lobortis diam risus, non
-            fringilla nisl ultrices vel. Suspendisse potenti. Donec commodo massa non suscipit
-            viverra. Sed suscipit mauris est, ut rhoncus nisl tempor sed. Nam neque felis, congue
-            vestibulum interdum tristique, finibus quis turpis. Morbi suscipit urna dui, ut
-            efficitur odio sollicitudin pulvinar. Proin quis elementum ex. In nec ullamcorper metus.
-            Morbi ac tincidunt nisi. Ut sit amet maximus erat. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Nulla diam arcu, tincidunt non nisl sit amet, finibus
-            scelerisque lorem. Duis imperdiet rutrum massa sed convallis. Sed accumsan libero sem,
-            et mattis felis rhoncus eu. Curabitur pharetra, libero a pretium semper, purus turpis
-            suscipit risus, et sodales augue elit et tortor. Etiam auctor orci vel tortor accumsan,
-            nec vestibulum ante elementum. Nulla nec magna felis. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Fusce mattis urna at fringilla semper. Praesent gravida
-            malesuada luctus. Morbi maximus ullamcorper turpis a eleifend. Proin dapibus ornare
-            tellus eu volutpat. Quisque faucibus ex justo. Pellentesque elementum diam nec est
-            molestie, ut semper nisl malesuada. Curabitur odio ligula, cursus et arcu eget, dictum
-            dictum lacus.</p>
-    </section>
-
-    <section id="photo-gallery" class="photo-gallery">
-        <h2>Photo Gallery</h2>
-        <img src="resources/img/luau.jpg">
-    </section>
-
+        <section id="photo-gallery" class="photo-gallery section-header">
+            <h2>Photo Gallery</h2>
+            <img src="resources/img/luau.jpg">
+        </section>
+    </div>
 </body>
 </html>
