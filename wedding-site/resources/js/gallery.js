@@ -23,6 +23,10 @@ $(document).ready(function(){
         // options
         cellAlign: 'center',
         contain: true,
+        percentPosition: false,
+        wrapAround: true,
+        autoPlay: 5000,
+        pauseAutoPlayOnHover: false
       });
     
     let flkty = $gallery.data('flickity');
@@ -35,7 +39,28 @@ $(document).ready(function(){
             return;
         }
         flkty.select(cellIndex);
-    });        
+    });
+    
+    // add play & pause buttons
+    //                    <span class='control glyphicon glyphicon-pause'></span>
+//    <span class='control glyphicon glyphicon-play'></span>
+
+    $controlBar = $('.slideshow-controls');
+    $controlBar.append(
+        $('<span/>')
+        .addClass('control')
+        .addClass('glyphicon')
+        .addClass('glyphicon-pause')
+        .attr('title', 'Pause Slideshow')
+        .on('click', function(){flkty.pausePlayer()})
+    ).append(
+        $('<span/>')
+        .addClass('control')
+        .addClass('glyphicon')
+        .addClass('glyphicon-play')
+        .attr('title', 'Resume Slideshow')
+        .on('click', function(){flkty.playPlayer()})
+    );
 });
 
 function updatePrevNext() {
@@ -49,11 +74,11 @@ function updatePrevNext() {
 
 function changeGalleryImage(imageSrc) {
     let $galleryImage = $('#gallery-image');
-    $galleryImage.fadeOut('fast');
+    $galleryImage.fadeOut(200);
     window.setTimeout(changeAndFadeIn, 200);
     
     function changeAndFadeIn () {
         $galleryImage.attr('src', imageSrc);
-        $galleryImage.fadeIn('fast');
+        $galleryImage.fadeIn(200);
     }
 }

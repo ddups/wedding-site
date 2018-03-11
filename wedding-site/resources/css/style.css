@@ -337,6 +337,22 @@ section {
   width: 85%;
 }
 
+.slideshow-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.control {
+  margin: 2px 20px;
+  cursor: pointer;
+}
+
+.control:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 .gallery-image {
   width: 100%;
   border: 1px solid white;
