@@ -74,11 +74,12 @@ function updatePrevNext() {
 
 function changeGalleryImage(imageSrc) {
     let $galleryImage = $('#gallery-image');
-    $galleryImage.fadeOut(200);
+    $galleryImage.addClass('fade-out');
     window.setTimeout(changeAndFadeIn, 200);
     
     function changeAndFadeIn () {
         $galleryImage.attr('src', imageSrc);
-        $galleryImage.fadeIn(200);
+        $galleryImage.removeClass('fade-out');
+        $galleryImage.addClass('fade-in');
     }
 }

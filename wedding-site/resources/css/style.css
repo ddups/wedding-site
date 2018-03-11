@@ -119,6 +119,8 @@ section {
   margin-top: 50px
 }
 
+
+/* Small top cloud border */
 .divider-bottom-1 {
   padding-bottom: 290px !important
 }
@@ -136,8 +138,10 @@ section {
   z-index: 0
 }
 
+
+/* Large bottom cloud with bg pattern */
 .divider-bottom-2 {
-  padding-bottom: 485px
+  padding-bottom: 550px
 }
 
 .divider-bottom-2::after {
@@ -160,7 +164,7 @@ section {
 .divider-bottom-2.divider-pattern::before {
   content: "";
   width: 100%;
-  height: 782px;
+  height: 725px;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -178,6 +182,7 @@ section {
   background-color: #ad9fb3
 }
 
+/* */
 .divider-bottom-3::after {
   content: "";
   width: 100%;
@@ -187,8 +192,21 @@ section {
   bottom: 0;
   background-repeat: repeat-x;
   background-position: top center;
-  background-image: url(../img/divider_3.png);
+  background-image: url(../img/up-angle.png);
   z-index: 1
+}
+
+.divider-top-up-angle::before  {
+  content: "";
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: -10px;
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-image: url(../img/up-angle.png);
+  z-index: 1;
 }
 
 .divider-top-1::before {
@@ -200,7 +218,19 @@ section {
   top: 0;
   background-repeat: repeat-x;
   background-position: top center;
-  background-image: url(../img/divider_4.png)
+  background-image: url(../img/down-angle.png)
+}
+
+.divider-top-down-angle::after {
+  content: "";
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-image: url(../img/down-angle.png)
 }
 
 .divider-top-1.bg-color-overlay::before {
@@ -222,6 +252,41 @@ section {
   background-position: top center;
   background-image: url(../img/divider_5.png);
   z-index: 0
+}
+
+.bg-color {
+    background-color: #ad9fb3;
+}
+
+.bg-color-overlay {
+  position: relative
+}
+
+.bg-color-overlay::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #73627b;
+  -webkit-opacity: .85;
+  -moz-opacity: .85;
+  opacity: .85
+}
+
+.bg-color-overlay ::selection {
+  background: #fff;
+  color: #ad9fb3
+}
+
+.bg-color-overlay ::-moz-selection {
+  background: #fff;
+  color: #ad9fb3
+}
+
+.pattern {
+    background-image: url(../img/pattern.png);
 }
 
 .free-wall {
@@ -280,7 +345,7 @@ section {
 }
 
 .quote-fullwidth {
-  background-image: url(../img/quote-img.jpg);
+  background-image: url(../img/rings.jpg);
   font-size: 38pt;
   line-height: 38pt;
   padding: 100px 0;
@@ -289,31 +354,10 @@ section {
   font-family: 'Dancing Script', cursive
 }
 
-.bg-color-overlay {
-  position: relative
-}
-
-.bg-color-overlay::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #73627b;
-  -webkit-opacity: .85;
-  -moz-opacity: .85;
-  opacity: .85
-}
-
-.bg-color-overlay ::selection {
-  background: #fff;
-  color: #ad9fb3
-}
-
-.bg-color-overlay ::-moz-selection {
-  background: #fff;
-  color: #ad9fb3
+.wedding-parties {
+  background-image: url(../img/flowers.jpg);
+  padding: 100px 0;
+  text-align: center;
 }
 
 .padding-top-1em {
@@ -388,6 +432,42 @@ section {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
+
+@keyframes fadeInOpacity {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOutOpacity {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: .2s;
+}
+
+.fade-out {
+  opacity: 0;
+  animation-name: fadeOutOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: .2s;
+}
+
 
 /* smaller, dark, rounded square */
 .flickity-prev-next-button {

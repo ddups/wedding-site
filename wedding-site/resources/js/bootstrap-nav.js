@@ -58,11 +58,15 @@ let $infoMenu =
         .addClass('dropdown-menu')
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'info.html')
+                                .attr('href', '#info')
+                                .text('Info')))
+        .append($('<li/>')
+                    .append($('<a/>')
+                                .attr('href', '#venue')
                                 .text('The Venue')))
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'info.html#accommodations')
+                                .attr('href', '#accommodations')
                                 .text('Accommodations')));
 
 let $infoButton = 
@@ -74,7 +78,7 @@ let $infoButton =
                 .attr('data-toggle', 'dropdown')
                 .attr('aria-haspopup', 'true')
                 .attr('aria-expanded', 'false')
-                .text('Info ')
+                .text('The Wedding ')
                 .append($('<span/>').addClass('caret')))
         .append($infoMenu);
 
@@ -144,8 +148,8 @@ $(document).ready(function(){
                         .addClass('nav')
                         .addClass('navbar-nav')
                         .append($storyButton)
-                        .append($partiesButton)
                         .append($infoButton)
+                        .append($partiesButton)
                         .append($giftsButton)
                         .append($contactButton)
                 )
