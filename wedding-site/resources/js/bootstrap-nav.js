@@ -4,15 +4,11 @@ let $storyMenu =
         .addClass('dropdown-menu')
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'our-story.html')
-                                .text('His Version')))
+                                .attr('href', '#our-story')
+                                .text('How We Met')))
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'our-story.html#her-version')
-                                .text('Her Version')))
-        .append($('<li/>')
-                    .append($('<a/>')
-                                .attr('href', 'our-story.html#photo-gallery')
+                                .attr('href', '#photo-gallery')
                                 .text('Photo Gallery')));
 
 let $storyButton = 
