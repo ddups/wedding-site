@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/css/navigation.css">
 <link rel="stylesheet" href="resources/css/flickity.css">
 <link rel="stylesheet" href="resources/css/style.css">
+<link rel="stylesheet" href="resources/css/timeline.css">
 
 
 <!-- FONTS -->
@@ -37,6 +38,7 @@
 <script src="resources/js/gallery.js"></script>
 <script src="resources/js/bio-gallery.js"></script>
 <script src="resources/js/navigation.js"></script>
+<script src="resources/js/timeline.js"></script>
 </head>
 
 <body id="body">
@@ -198,26 +200,50 @@
                     </div>                
                 
                     <div class="right-column">
-                        <div>
-                            <div class="day-box">
-                                <h2>Friday</h2>
-                                <div class="fri-sched">
-                                    <div class="sched-box">
-                                        <span class="time">4 pm - on</span>
-                                        <div>Open check-in -- Grab your bag from the main
-                                            office and find your cabin.</div>
-                                    </div>
-                                    <span class="glyphicon glyphicon-arrow-right right-arrow"></span>
-                                    <div class="sched-box">
-                                        <span class="time">7 pm - 9 pm</span>
-                                        <div>Join us in the Rec Center for post-dinner drinks,
-                                            dancing, and mingling!</div>
-                                    </div>
-                                    <span class="glyphicon glyphicon-arrow-right right-arrow"></span>
-                                    <div class="sched-box">
-                                        <span class="time">9 pm - on</span>
-                                        <div>Grab a spot by the fire pit, kick back, and relax</div>
-                                    </div>
+                        <div> <!-- this creates the double border -->
+                            <div class="day-box"> <!-- Friday schedule -->
+                                <div id="fri-timeline" class="cd-horizontal-timeline">
+                                    <h2>Friday</h2>
+                                    <div class="timeline">
+                                        <div class="events-wrapper">
+                                            <div class="events">
+                                                <ol>
+                                                    <li><a href="#0" data-date="01/01/2014"
+                                                           class="time-selected">4:00 pm</a></li>
+                                                    <li><a href="#0" data-date="01/01/2015">7:00
+                                                        pm</a></li>
+                                                    <li><a href="#0" data-date="01/01/2016">9:00
+                                                        pm</a></li>
+                                                </ol>
+
+                                                <span class="filling-line" aria-hidden="true"></span>
+                                            </div> <!-- .events -->
+                                        </div> <!-- .events-wrapper -->
+
+                                        <ul class="cd-timeline-navigation">
+                                            <li><a href="#0" class="prev inactive">Prev</a></li>
+                                            <li><a href="#0" class="next">Next</a></li>
+                                        </ul> <!-- .cd-timeline-navigation -->
+                                    </div> <!-- .timeline -->
+
+                                    <div class="events-content">
+                                        <ol>
+                                            <li class="time-selected" data-date="01/01/2014">
+                                                <em>Open check-in</em>
+                                                <p>Stop by the main office any time after 4 pm and grab your info bag. This will contain a map of the camp, as well as some other information that will also be listed on the bulletin board. Find your cabin and get yourself settled, and then the camp is yours to explore!</p>
+                                            </li>
+
+                                            <li data-date="01/01/2015">
+                                                <em>L'Après Dîner</em>
+                                                <p>Join us in the Rec Center after the rehearsal dinner for drinks, dancing, and mingling! This will be super casual so feel free to make your own plans for dinner and show up whenever.</p>
+                                            </li>
+
+                                            <li data-date="01/01/2016">
+                                                <em>S'mores and Ghost Stories</em>
+                                                <p>Head over to the boy's quad and grab a spot by the fire pit. Kick back and relax, enjoy some toasty treats, and swap stories with old friends and new ones.</p>
+                                            </li>
+                                        </ol>
+                                    </div><!-- .events-content -->
                                 </div>
                             </div>
                             <div class="day-box">
@@ -230,7 +256,7 @@
                                     <span class="glyphicon glyphicon-arrow-right right-arrow"></span>
                                     <div class="sched-box">
                                         <span class="time">11 am - 12 pm</span>
-                                        <div>Pick-up Ultimate game in front of the boy's quad. Everyone is encouraged to come play or watch.</div>
+                                        <div>Pick-up Ultimate game in the boy's quad. Everyone is encouraged to come play or watch.</div>
                                     </div>
                                     <span class="glyphicon glyphicon-arrow-right right-arrow"></span>
                                     <div class="sched-box">
