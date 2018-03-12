@@ -57,6 +57,14 @@ section {
   opacity: .5
 }
 
+.section-title-white {
+  color: white;
+}
+
+.section-title-white::before, .section-title-white::after {
+  background-color: white;
+}
+
 .home {
   position: relative;
   padding-bottom: 0;
@@ -272,7 +280,8 @@ section {
   background: #73627b;
   -webkit-opacity: .85;
   -moz-opacity: .85;
-  opacity: .85
+  opacity: .85;
+  z-index: -1;
 }
 
 .bg-color-overlay ::selection {
@@ -377,8 +386,12 @@ section {
   width: 65%;
 }
 
-.gallery {
+#gallery {
   width: 85%;
+}
+
+#bio-gallery {
+  width: 100%;
 }
 
 .slideshow-controls {
@@ -403,21 +416,55 @@ section {
   border-radius: 4px;
 }
 
-.thumb {
-  width: 150px;
-  height: 150px;
+.bio-display {
+  border: 4px solid #ddd;
+  border-radius: 4px;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.bio-display p {
+  
+}
+
+.bio-display h2 {
+  
+}
+
+.bio-text {
+  display: none;
+  user-select: none;  
+}
+
+.thumb, .bio-thumb {
   overflow: hidden;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin: 4px;
 }
 
-.thumb img {
+.thumb {
+  width: 150px;
+  height: 150px;
+}
+
+.bio-thumb {
+  width: 13.69%;
+  border: 1px solid #ad9fb3;
+}
+
+.thumb img, .bio-thumb img {
   max-width: 100%;
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
+}
+
+.thumb img:hover, .bio-thumb img:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .thumb.is-selected {
@@ -427,10 +474,27 @@ section {
   opacity: .45
 }
 
-.thumb img:hover {
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+.bio-thumb.selected {
+  background: white;
+  -webkit-opacity: .65;
+  -moz-opacity: .65;
+  opacity: .65;
+  border: 2px solid white;
+}
+
+.bridesmaid-select, .groomsmen-select {
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.bridesmaid-select {
+  margin-right: 10px;
+}
+
+.groomsmen-select {
+  margin-left: 10px;
 }
 
 @keyframes fadeInOpacity {
@@ -468,6 +532,10 @@ section {
   animation-duration: .2s;
 }
 
+.flickity-page-dots-inline{
+  position: relative;
+  display: inline;
+}
 
 /* smaller, dark, rounded square */
 .flickity-prev-next-button {
@@ -497,3 +565,134 @@ section {
   right: -40px;
 }
 /* ****END GALLERY**** */
+
+
+
+/* ****WEDDING DETAILS**** */
+.two-columns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-column {
+  width: 60%;
+}
+
+.right-column ul {
+  list-style: none;
+}
+
+.left-column ul li {
+  display: block;
+}
+
+.left-column ul li:before {
+  font-family: 'Glyphicons Halflings';
+  font-size: 12px;
+  font-weight: bold;
+  float: left;
+  margin-top: 6px;
+  margin-left: -17px;
+}
+
+#important-notes ul li::before {
+  content: "\e101";
+}
+
+#what-to-bring ul li::before {
+  content: "\e125";
+}
+
+.left-column>div, .right-column>div {
+  position: relative;
+  border: 3px solid rgba(255, 255, 255, .5);
+  padding: 22px 8px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.left-column>div::before, .right-column>div::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: -11px;
+  right: -11px;
+  bottom: -11px;
+  border: 3px solid rgba(255,255,255,.5);
+  z-index: -1;
+}
+
+.time {
+  display: block;
+  text-align: center;
+  border-bottom: 2px solid rgba(255,255,255,.5);
+  margin: 0 40px;
+  padding: 4px 0;
+}
+
+.day-box {
+  border-bottom: 4px solid rgba(255,255,255,.5);
+}
+
+.fri-sched, .sat-sched, .sun-sched {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+.sat-sched {
+  flex-wrap: wrap;
+}
+
+.sun-sched {
+  justify-content: space-around;
+  padding: 1px 1px;
+}
+
+.sched-box {
+  width: 30%;
+  text-align: center;
+  padding: 4px;
+  border: 2px solid rgba(255,255,255,.5);
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sun-sched .sched-box {
+  width: 40%;
+}
+
+.left-arrow, .right-arrow {
+  content: "";
+  font-size: 30px;
+  font-weight: bold;
+  align-self: center;
+}
+
+.wrap-arrow-right, .wrap-arrow-left {
+  width: 100%;
+  content: "";
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.wrap-arrow-right {
+  text-align: right;
+  margin-right: 13.5%;
+}
+
+.wrap-arrow-left {
+  text-align: left;
+  margin-left: 13.5%;
+}
+
+
+

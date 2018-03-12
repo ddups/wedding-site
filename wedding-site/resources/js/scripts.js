@@ -1,20 +1,4 @@
 $(document).ready(function(){
-    // ACCORDION IMAGES
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-      acc[i].onclick = function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight){
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-      }
-    }
-    
     // FREEWALL
     var temp = "<div class='brick' style='width:{width}px;'><img src='resources/img/gallery/{index}.jpg' width='100%'></div>";
     var w = 1, h = 1, html = '', limitItem = 22;

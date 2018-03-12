@@ -149,6 +149,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
 .card img {
@@ -177,6 +178,7 @@ a {
 
 .bio-group {
   display: flex;
+  flex-flow: row row-wrap;
   justify-content: space-evenly;
   margin-bottom: 2em;
 }
@@ -184,4 +186,5 @@ a {
 .bio-container  {
   width: 100%;
   max-width: 350px;
+  cursor: pointer;
 }

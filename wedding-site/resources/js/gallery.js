@@ -31,7 +31,7 @@ $(document).ready(function(){
     
     let flkty = $gallery.data('flickity');
     $gallery.on( 'select.flickity', function() {
-        updatePrevNext();
+        updateImageGallery();
     })
     
     $gallery.on( 'staticClick.flickity', function(event, pointer, cellElement, cellIndex) {
@@ -63,7 +63,7 @@ $(document).ready(function(){
     );
 });
 
-function updatePrevNext() {
+function updateImageGallery() {
     let $gallery = $('#gallery');
     let flkty = $gallery.data('flickity');
     
