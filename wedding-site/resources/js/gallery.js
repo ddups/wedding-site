@@ -23,7 +23,7 @@ $(document).ready(function(){
         // options
         cellAlign: 'center',
         contain: true,
-        percentPosition: false,
+        imagesLoaded: true,
         wrapAround: true,
         autoPlay: 5000,
         pauseAutoPlayOnHover: false

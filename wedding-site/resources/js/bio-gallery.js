@@ -67,6 +67,7 @@ $(document).ready(function(){
             .text('Bridesmaids')
             .on('click', function (){
                 bioFlkty.select(0);
+                changeBioText(bioFlkty.getCellElements()[0]);
             })
     );
     $dots.after(
@@ -75,6 +76,7 @@ $(document).ready(function(){
             .text('Groomsmen')
             .on('click', function (){
                 bioFlkty.select(1);
+                changeBioText(bioFlkty.getCellElements()[7]);
             })
     );
     
@@ -87,33 +89,35 @@ $(document).ready(function(){
     // need to keep bio text hidden until now, then display rachel as default
     changeBioText(bioFlkty.getCellElements()[0]);
     
-    function changeBioText(thumb) {
-        // clear previous and shade the newly selected thumbnail
-        $('.selected').removeClass('selected');
-        $(thumb).addClass('selected');
-        
-        let $bioDisplay = $('#bio-display');
-        let $bioNameContainer = $('#bio-name');
-        let $bioTitleContainer = $('#bio-title');
-        let $bioTextContainer = $('#bio-text');
-        
-        let textID = $(thumb).data('bio-text');
-        let $hiddenBio = $('#' + textID);
-        let bioText = $hiddenBio.text();
-
-        let name = $hiddenBio.data('full-name');
-        let title = $hiddenBio.data('title');
-        
-        $bioDisplay.addClass('fade-out'); // fade container
-        window.setTimeout(changeAndFadeIn, 200);
-
-        function changeAndFadeIn () {
-            $bioNameContainer.text(name);
-            $bioTitleContainer.text(title);
-            $bioTextContainer.text(bioText);
-            
-            $bioDisplay.removeClass('fade-out');
-            $bioDisplay.addClass('fade-in');
-        }
-    }
 });
+
+function changeBioText(thumb) {
+    // clear previous and shade the newly selected thumbnail
+    $('.selected').removeClass('selected');
+    $(thumb).addClass('selected');
+    
+    let $bioDisplay = $('#bio-display');
+    let $bioNameContainer = $('#bio-name');
+    let $bioTitleContainer = $('#bio-title');
+    let $bioTextContainer = $('#bio-text');
+    
+    let textID = $(thumb).data('bio-text');
+    let $hiddenBio = $('#' + textID);
+    let bioText = $hiddenBio.text();
+
+    let name = $hiddenBio.data('full-name');
+    let title = $hiddenBio.data('title');
+    
+    $bioDisplay.addClass('fade-out'); // fade container
+    window.setTimeout(changeAndFadeIn, 200);
+
+    function changeAndFadeIn () {
+        $bioNameContainer.text(name);
+        $bioTitleContainer.text(title);
+        $bioTextContainer.text(bioText);
+        
+        $bioDisplay.removeClass('fade-out');
+        $bioDisplay.addClass('fade-in');
+    }
+}
+
