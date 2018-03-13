@@ -420,11 +420,21 @@ section {
 }
 
 .bio-display p {
-  
 }
 
 .bio-display h2 {
-  
+  width: 100%;
+}
+
+.mc-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ad9fb3;
+}
+
+.mc-container .bio-display {
+  width: 68%;
 }
 
 .bio-text {
@@ -475,6 +485,10 @@ section {
   -moz-opacity: .65;
   opacity: .65;
   border: 2px solid white;
+}
+
+.mc-container .bio-thumb.selected {
+    border: 2px solid dark-gray;
 }
 
 .bridesmaid-select, .groomsmen-select {

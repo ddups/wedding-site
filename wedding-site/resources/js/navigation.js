@@ -37,7 +37,7 @@ let $partiesMenu =
                                 .text('Groomsmen')))
         .append($('<li/>')
                 .append($('<a/>')
-                            .attr('href', 'wedding-parties.html#mcs')
+                            .attr('href', '#mcs')
                             .text('The MCs')));
     
 let $partiesButton = 
