@@ -8,34 +8,36 @@ jQuery(document).ready(function($){
 		timelines.each(function(){
 			var timeline = $(this),
 				timelineComponents = {};
-			//cache timeline components 
-			timelineComponents['timelineWrapper'] = timeline.find('.events-wrapper');
+			// cache timeline components 
+            timelineComponents['timelineContainer'] = timeline.find('.timeline');
+            timelineComponents['timelineWrapper'] = timeline.find('.events-wrapper');
 			timelineComponents['eventsWrapper'] = timelineComponents['timelineWrapper'].children('.events');
 			timelineComponents['fillingLine'] = timelineComponents['eventsWrapper'].children('.filling-line');
 			timelineComponents['timelineEvents'] = timelineComponents['eventsWrapper'].find('a');
-			timelineComponents['timelineDates'] = parseDate(timelineComponents['timelineEvents']);
-			timelineComponents['eventsMinLapse'] = minLapse(timelineComponents['timelineDates']);
 			timelineComponents['timelineNavigation'] = timeline.find('.cd-timeline-navigation');
 			timelineComponents['eventsContent'] = timeline.children('.events-content');
 
-			//assign a left postion to the single events along the timeline
-			setDatePosition(timelineComponents, eventsMinDistance);
-			//assign a width to the timeline
-			var timelineTotWidth = setTimelineWidth(timelineComponents, eventsMinDistance);
-			//the timeline has been initialize - show it
+	        // assign a width to the timeline
+            var timelineTotWidth = setTimelineWidthFull(timelineComponents);
+
+			// space events evenly
+			setEventPosition(timelineComponents, timelineTotWidth - 50); // offset margin
+	        updateFilling(timelineComponents['timelineEvents'].eq(0), timelineComponents['fillingLine'], timelineTotWidth);
+
+			// the timeline has been initialize - show it
 			timeline.addClass('loaded');
 
-			//detect click on the next arrow
+			// detect click on the next arrow
 			timelineComponents['timelineNavigation'].on('click', '.next', function(event){
 				event.preventDefault();
 				updateSlide(timelineComponents, timelineTotWidth, 'next');
 			});
-			//detect click on the prev arrow
+			//  detect click on the prev arrow
 			timelineComponents['timelineNavigation'].on('click', '.prev', function(event){
 				event.preventDefault();
 				updateSlide(timelineComponents, timelineTotWidth, 'prev');
 			});
-			//detect click on the a single event - show new event content
+			// detect click on the a single event - show new event content
 			timelineComponents['eventsWrapper'].on('click', 'a', function(event){
 				event.preventDefault();
 				timelineComponents['timelineEvents'].removeClass('time-selected');
@@ -45,7 +47,7 @@ jQuery(document).ready(function($){
 				updateVisibleContent($(this), timelineComponents['eventsContent']);
 			});
 
-			//on swipe, show next/prev event content
+			// on swipe, show next/prev event content
 			timelineComponents['eventsContent'].on('swipeleft', function(){
 				var mq = checkMQ();
 				( mq == 'mobile' ) && showNewContent(timelineComponents, timelineTotWidth, 'next');
@@ -55,7 +57,7 @@ jQuery(document).ready(function($){
 				( mq == 'mobile' ) && showNewContent(timelineComponents, timelineTotWidth, 'prev');
 			});
 
-			//keyboard navigation
+			// keyboard navigation
 			$(document).keyup(function(event){
 				if(event.which=='37' && elementInViewport(timeline.get(0)) ) {
 					showNewContent(timelineComponents, timelineTotWidth, 'prev');
@@ -67,21 +69,21 @@ jQuery(document).ready(function($){
 	}
 
 	function updateSlide(timelineComponents, timelineTotWidth, string) {
-		//retrieve translateX value of timelineComponents['eventsWrapper']
+		// retrieve translateX value of timelineComponents['eventsWrapper']
 		var translateValue = getTranslateValue(timelineComponents['eventsWrapper']),
 			wrapperWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', ''));
-		//translate the timeline to the left('next')/right('prev') 
+		// translate the timeline to the left('next')/right('prev') 
 		(string == 'next') 
 			? translateTimeline(timelineComponents, translateValue - wrapperWidth + eventsMinDistance, wrapperWidth - timelineTotWidth)
 			: translateTimeline(timelineComponents, translateValue + wrapperWidth - eventsMinDistance);
 	}
 
 	function showNewContent(timelineComponents, timelineTotWidth, string) {
-		//go from one event to the next/previous one
+		// go from one event to the next/previous one
 		var visibleContent =  timelineComponents['eventsContent'].find('.time-selected'),
 			newContent = ( string == 'next' ) ? visibleContent.next() : visibleContent.prev();
 
-		if ( newContent.length > 0 ) { //if there's a next/prev event - show it
+		if ( newContent.length > 0 ) { // if there's a next/prev event - show it
 			var selectedDate = timelineComponents['eventsWrapper'].find('.time-selected'),
 				newEvent = ( string == 'next' ) ? selectedDate.parent('li').next('li').children('a') : selectedDate.parent('li').prev('li').children('a');
 			
@@ -95,7 +97,7 @@ jQuery(document).ready(function($){
 	}
 
 	function updateTimelinePosition(string, event, timelineComponents, timelineTotWidth) {
-		//translate timeline to the left/right according to the position of the selected event
+		// translate timeline to the left/right according to the position of the selected event
 		var eventStyle = window.getComputedStyle(event.get(0), null),
 			eventLeft = Number(eventStyle.getPropertyValue("left").replace('px', '')),
 			timelineWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', '')),
@@ -109,16 +111,16 @@ jQuery(document).ready(function($){
 
 	function translateTimeline(timelineComponents, value, totWidth) {
 		var eventsWrapper = timelineComponents['eventsWrapper'].get(0);
-		value = (value > 0) ? 0 : value; //only negative translate value
-		value = ( !(typeof totWidth === 'undefined') &&  value < totWidth ) ? totWidth : value; //do not translate more than timeline width
+		value = (value > 0) ? 0 : value; // only negative translate value
+		value = ( !(typeof totWidth === 'undefined') &&  value < totWidth ) ? totWidth : value; // do not translate more than timeline width
 		setTransformValue(eventsWrapper, 'translateX', value+'px');
-		//update navigation arrows visibility
+		// update navigation arrows visibility
 		(value == 0 ) ? timelineComponents['timelineNavigation'].find('.prev').addClass('inactive') : timelineComponents['timelineNavigation'].find('.prev').removeClass('inactive');
 		(value == totWidth ) ? timelineComponents['timelineNavigation'].find('.next').addClass('inactive') : timelineComponents['timelineNavigation'].find('.next').removeClass('inactive');
 	}
 
 	function updateFilling(selectedEvent, filling, totWidth) {
-		//change .filling-line length according to the selected event
+		// change .filling-line length according to the selected event
 		var eventStyle = window.getComputedStyle(selectedEvent.get(0), null),
 			eventLeft = eventStyle.getPropertyValue("left"),
 			eventWidth = eventStyle.getPropertyValue("width");
@@ -127,29 +129,31 @@ jQuery(document).ready(function($){
 		setTransformValue(filling.get(0), 'scaleX', scaleValue);
 	}
 
-	function setDatePosition(timelineComponents, min) {
-		for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
-		    var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
-		    	distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;
-		    timelineComponents['timelineEvents'].eq(i).css('left', distanceNorm*min+'px');
-		}
+	function setEventPosition(timelineComponents, totWidth) {
+	    let numEvents = timelineComponents['timelineEvents'].length + 2; // add beginning and end "points"
+	    let spacing = totWidth / (numEvents - 1);
+	    
+	    let distance = 0;
+	    for (i = 0; i < numEvents; i++) {
+	        distance += spacing; 
+	        timelineComponents['timelineEvents'].eq(i).css('left', distance + 'px');
+        }
 	}
 
-	function setTimelineWidth(timelineComponents, width) {
-		var timeSpan = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][timelineComponents['timelineDates'].length-1]),
-			timeSpanNorm = timeSpan/timelineComponents['eventsMinLapse'],
-			timeSpanNorm = Math.round(timeSpanNorm) + 4,
-			totalWidth = timeSpanNorm*width;
-		timelineComponents['eventsWrapper'].css('width', totalWidth+'px');
-		updateFilling(timelineComponents['timelineEvents'].eq(0), timelineComponents['fillingLine'], totalWidth);
-	
-		return totalWidth;
-	}
+	function setTimelineWidthFull(timelineComponents) {
+        // set width to width of timeline
+        let totalWidth = timelineComponents['timelineContainer'].css('width');
+        totalWidth = totalWidth.substring(0, totalWidth.length - 2);
+        totalWidth -= 80;
+        
+        timelineComponents['eventsWrapper'].css('width', totalWidth + 'px');
+        return totalWidth;
+    }
 
 	function updateVisibleContent(event, eventsContent) {
-		var eventDate = event.data('date'),
+		var eventId = event.data('event-id'),
 			visibleContent = eventsContent.find('.time-selected'),
-			selectedContent = eventsContent.find('[data-date="'+ eventDate +'"]'),
+			selectedContent = eventsContent.find('[data-event-id="'+ eventId +'"]'),
 			selectedContentHeight = selectedContent.height();
 
 		if (selectedContent.index() > visibleContent.index()) {
@@ -200,52 +204,6 @@ jQuery(document).ready(function($){
 		element.style["transform"] = property+"("+value+")";
 	}
 
-	//based on http://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascript
-	function parseDate(events) {
-		var dateArrays = [];
-		events.each(function(){
-			var dateComp = $(this).data('date').split('/'),
-				newDate = new Date(dateComp[2], dateComp[1]-1, dateComp[0]);
-			dateArrays.push(newDate);
-		});
-	    return dateArrays;
-	}
-
-	function parseDate2(events) {
-		var dateArrays = [];
-		events.each(function(){
-			var singleDate = $(this),
-				dateComp = singleDate.data('date').split('T');
-			if( dateComp.length > 1 ) { //both DD/MM/YEAR and time are provided
-				var dayComp = dateComp[0].split('/'),
-					timeComp = dateComp[1].split(':');
-			} else if( dateComp[0].indexOf(':') >=0 ) { //only time is provide
-				var dayComp = ["2000", "0", "0"],
-					timeComp = dateComp[0].split(':');
-			} else { //only DD/MM/YEAR
-				var dayComp = dateComp[0].split('/'),
-					timeComp = ["0", "0"];
-			}
-			var	newDate = new Date(dayComp[2], dayComp[1]-1, dayComp[0], timeComp[0], timeComp[1]);
-			dateArrays.push(newDate);
-		});
-	    return dateArrays;
-	}
-
-	function daydiff(first, second) {
-	    return Math.round((second-first));
-	}
-
-	function minLapse(dates) {
-		//determine the minimum distance among events
-		var dateDistances = [];
-		for (i = 1; i < dates.length; i++) { 
-		    var distance = daydiff(dates[i-1], dates[i]);
-		    dateDistances.push(distance);
-		}
-		return Math.min.apply(null, dateDistances);
-	}
-
 	/*
 		How to tell if a DOM element is visible in the current viewport?
 		http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
@@ -271,7 +229,7 @@ jQuery(document).ready(function($){
 	}
 
 	function checkMQ() {
-		//check if mobile or desktop device
+		// check if mobile or desktop device
 		return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
 	}
 });

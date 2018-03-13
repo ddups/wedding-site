@@ -53,7 +53,10 @@ $(document).ready(function(){
         if (!cellElement) {
             return;
         }
-        changeBioText(cellElement);
+        
+        if (!$(cellElement).hasClass('selected')) {
+            changeBioText(cellElement);
+        }
     });
 
     $dots = $('#bio-gallery').children('.flickity-page-dots');

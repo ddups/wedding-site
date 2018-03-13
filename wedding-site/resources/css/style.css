@@ -639,61 +639,19 @@ section {
 
 .day-box {
   border-bottom: 4px solid rgba(255,255,255,.5);
+  padding: 20px 0 20px;
 }
 
-.fri-sched, .sat-sched, .sun-sched {
-  display: flex;
-  justify-content: space-between;
-  margin: 8px;
-}
-
-.sat-sched {
-  flex-wrap: wrap;
-}
-
-.sun-sched {
-  justify-content: space-around;
-  padding: 1px 1px;
-}
-
-.sched-box {
-  width: 30%;
-  text-align: center;
-  padding: 4px;
-  border: 4px solid #ddd;
-  border-radius: 4px;
-  background: #f5f5f5;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.sun-sched .sched-box {
-  width: 40%;
+.day-box + .day-box + .day-box {
+  border-bottom: 0;
 }
 
 .left-arrow, .right-arrow {
   content: "";
-  font-size: 30px;
-  font-weight: bold;
-  align-self: center;
+  top: 3px;
+  left: 5px;
 }
 
-.wrap-arrow-right, .wrap-arrow-left {
+.container-fluid img {
   width: 100%;
-  content: "";
-  font-size: 30px;
-  font-weight: bold;
 }
-
-.wrap-arrow-right {
-  text-align: right;
-  margin-right: 13.5%;
-}
-
-.wrap-arrow-left {
-  text-align: left;
-  margin-left: 13.5%;
-}
-
-
-

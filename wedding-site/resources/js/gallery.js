@@ -38,7 +38,10 @@ $(document).ready(function(){
         if ( !cellElement ) {
             return;
         }
-        flkty.select(cellIndex);
+
+        if (!$(cellElement).hasClass('is-selected')) {
+            flkty.select(cellIndex);
+        }
     });
     
     // add play & pause buttons
