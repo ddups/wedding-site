@@ -361,7 +361,6 @@ section {
 
 .wedding-parties {
   background-image: url(../img/flowers.jpg);
-  padding: 100px 0;
   text-align: center;
 }
 
@@ -431,6 +430,7 @@ section {
   justify-content: space-between;
   align-items: center;
   background-color: #ad9fb3;
+  background-image: url(../img/pattern.png);
 }
 
 .mc-container .bio-display {
