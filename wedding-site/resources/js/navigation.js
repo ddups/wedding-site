@@ -88,12 +88,8 @@ let $giftsMenu =
         .addClass('dropdown-menu')
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'gifts.html')
-                                .text('Registries')))
-        .append($('<li/>')
-                    .append($('<a/>')
-                                .attr('href', 'gifts.html#donations')
-                                .text('Donations')));
+                                .attr('href', '#gifts')
+                                .text('Registries')));
 
 let $giftsButton = 
     $('<li/>')

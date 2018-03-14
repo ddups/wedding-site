@@ -1,33 +1,77 @@
 // GALLERY
 $(document).ready(function(){
-    (function initGalleryThumbnails(numImages) {
-        let srcBase = 'resources/img/gallery/';
-        let thumb = 'thumbnails/thumb-';
+    (function loadImages(directory) {
         let $gallery = $('#gallery');
+        let numFiles = 0;
+        let fileList = [];
+ 
+        //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+        $.ajax({
+            url: directory,
+            success: function (data) {
+                let regexp = new Regexp('\.png|\.jpg|\.gif');
+                // make a list all .png, jpg, and gif file names
+                $(data).find('a').filter(function () {return regexp.test($(this).text());}).each(function () {
+                    var filename = this.href.replace(window.location, '').replace('http://', '');
+                    fileList.push(filename);
+                    numFiles++;
+                    console.log('numFiles: ' + numFiles);
+//                    $('body').append('<img src='' + directory + filename + ''>');
+                });
+            }
+        });
         
-        for (var i = 1; i <= numImages; i++) {
-            let src = srcBase + i + '.jpg';
+        for (var i = 1; i <= fileList.length; i++) {
+            let src = directory + $(fileList).eq(i)
             $gallery.append(
                 $('<div/>')
                     .addClass('thumb')
                     .append(
                         $('<img/>')
-                            .attr('src', src)
+                            .attr('data-flickity-bg-lazyload', src)
+                    )
+            )   
+        }
+    });//('resources/img/gallery');
+    
+    
+    (function initGalleryThumbnails(numImages) {
+        let srcBase = 'resources/img/gallery/';
+        let $gallery = $('#gallery');
+        
+        for (var i = 1; i <= numImages; i++) {
+            let suffix;
+            if (i === numImages) {
+                suffix = '.gif';
+            } else {
+                suffix = '.jpg';
+            }
+            let src = srcBase + i + suffix;
+            $gallery.append(
+                $('<div/>')
+                    .addClass('thumb')
+                    .append(
+                        $('<img/>')
+                        .attr('src', src)
+//                        .attr('data-flickity-bg-lazyload', src)
                     )
             )
         }
-    })(22);
+    })(23);
     
     let $gallery = $('#gallery');
     $gallery.flickity({
         // options
         cellAlign: 'center',
         contain: true,
-        imagesLoaded: true,
+        freeScroll: true,
         wrapAround: true,
         autoPlay: 5000,
-        pauseAutoPlayOnHover: false
-      });
+        pauseAutoPlayOnHover: false,
+//        bgLazyLoad: true,
+        imagesLoaded : true,
+        pageDots : false
+    });
     
     let flkty = $gallery.data('flickity');
     $gallery.on( 'select.flickity', function() {
