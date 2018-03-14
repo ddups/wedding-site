@@ -109,15 +109,15 @@ let $contactMenu =
         .addClass('dropdown-menu')
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'contact.html')
-                                .text('Contact Info')))
-        .append($('<li/>')
-                    .append($('<a/>')
-                                .attr('href', 'contact.html#rsvp')
+                                .attr('href', '#rsvp')
                                 .text('RSVP')))
         .append($('<li/>')
                     .append($('<a/>')
-                                .attr('href', 'contact.html#guestbook')
+                                .attr('href', '#contact')
+                                .text('Contact Info')))
+        .append($('<li/>')
+                    .append($('<a/>')
+                                .attr('href', '#guestbook')
                                 .text('Guestbook')));
 
 let $contactButton =
