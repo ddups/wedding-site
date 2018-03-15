@@ -7,7 +7,11 @@ $(document).ready(function(){
  
         //This will retrieve the contents of the folder if the folder is configured as 'browsable'
         $.ajax({
-            url: directory,
+            type: 'GET',
+            dataType: "json",
+            url: '/wedding-site/resources/img/gallery',
+            username: 'derek@ddups.net',
+            password: '?W3bster=',
             success: function (data) {
                 let regexp = new Regexp('\.png|\.jpg|\.gif');
                 // make a list all .png, jpg, and gif file names
@@ -18,6 +22,9 @@ $(document).ready(function(){
                     console.log('numFiles: ' + numFiles);
 //                    $('body').append('<img src='' + directory + filename + ''>');
                 });
+            },
+            error: function (){
+                alert('That didn\'t work');
             }
         });
         
@@ -32,7 +39,7 @@ $(document).ready(function(){
                     )
             )   
         }
-    });//('resources/img/gallery');
+    })('resources/img/gallery');
     
     
     (function initGalleryThumbnails(numImages) {
@@ -57,7 +64,7 @@ $(document).ready(function(){
                     )
             )
         }
-    })(23);
+    });//(23);
     
     let $gallery = $('#gallery');
     $gallery.flickity({
